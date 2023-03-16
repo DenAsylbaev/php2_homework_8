@@ -1,0 +1,67 @@
+//создание поста
+# POST http://127.0.0.1:8080/posts/create
+# Some-Header: Some Value
+# Content-Type: application/json
+
+# {
+#     "username": "user234",
+#     "password": "qwerty234",
+#     "text": "some text2",
+#     "title": "some title2"
+# }
+
+// создание комментария
+# POST http://127.0.0.1:8080/posts/comment
+# Some-Header: Some Value
+
+# {
+# "author_uuid": "743bdbc3-3478-4d4f-91e1-cc93ca38e216",
+# "post_uuid": "c1e21670-7f82-4bc4-b3f8-c0f5d57af8f8",
+# "text": "my comment_2"
+# }
+
+// добавление или удаление лайка
+# POST http://127.0.0.1:8080/posts/like
+# Some-Header: Some Value
+
+# {
+# "author_uuid": "b8538686-4ee1-4e4b-8938-c3c6705b2706",
+# "post_uuid": "c1e21670-7f82-4bc4-b3f8-c0f5d57af8f8"
+# }
+
+// удаление поста
+# DELETE http://127.0.0.1:8080/posts?uuid=49eb905c-283d-43d7-9184-57f2d12632b4	
+
+// для обмена получения токена по паролю
+# POST http://127.0.0.1:8080/login
+# Some-Header: Some Value
+
+# {
+# "username": "user4",
+# "password": "pass1"
+# }
+
+// для создания поста с аутентификацией по токену
+# POST http://127.0.0.1:8080/posts/create
+# Authorization: Bearer 66eec97eb8d91998df9a7b436a55bffef19148d60b6024647d8abc72f02758a67a05249461515453
+# content-type: application/json
+
+# {
+#     "text": "some text4",
+#     "title": "some title4"
+# }
+
+# // создание комментария с аутентификацией по токену
+# POST http://127.0.0.1:8080/posts/comment
+# Authorization: Bearer 56eec97eb8d91998df9a7b436a55bffef19148d60b6024647d8abc72f02758a67a05249461515453
+# content-type: application/json
+
+# {
+#     "author_uuid": "71e1972e-5b53-4723-971c-cc47fe1e6ef0",
+#     "post_uuid": "a6732f54-2d8b-4e8a-924a-6fb6380c5dc8",
+#     "text": "my comment_3"
+# }
+
+POST http://127.0.0.1:8080/logout
+Authorization: Bearer 56eec97eb8d91998df9a7b436a55bffef19148d60b6024647d8abc72f02758a67a05249461515453
+content-type: application/json
